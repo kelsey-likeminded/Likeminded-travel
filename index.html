@@ -322,17 +322,50 @@
 
     @media (max-width: 900px) {
       nav { padding: 0.5rem 1.2rem; }
-      .nav-logo img { height: 38px; max-width: 130px; }
+      .nav-logo img { height: 36px; max-width: 110px; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      section { padding: 4rem 1.5rem; }
-      .hero-content { padding: 3rem 1.5rem; }
-      .who-inner, .founder-inner, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .paths-grid, .why-grid, .niches-grid, .steps { grid-template-columns: 1fr; }
+      section { padding: 2.5rem 1.2rem; }
+      .hero-content { padding: 2rem 1.2rem; }
+      .hero h1 { font-size: 2.2rem; line-height: 1.1; }
+      .hero-sub { font-size: 0.9rem; }
+      .section-title { font-size: 1.7rem; }
+      .section-body { font-size: 0.9rem; }
+      .who-inner, .founder-inner, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .paths-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .why-grid, .niches-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .steps { grid-template-columns: 1fr; gap: 1rem; }
       .step:not(:last-child)::after { display: none; }
       .form-row { grid-template-columns: 1fr; }
-      .dune-illustration { height: 250px; }
-      footer { padding: 3rem 1.5rem; }
+      .dune-illustration { height: 200px; }
+      footer { padding: 2rem 1.2rem; }
+      .footer-links { gap: 1rem; }
+      .path-card { padding: 1.6rem; }
+      .path-card h3 { font-size: 1.4rem; }
+      .path-card p { font-size: 0.85rem; line-height: 1.6; }
+      .cta-banner { padding: 2.5rem 1.2rem; }
+      .cta-banner h2 { font-size: 1.7rem; }
+      .cta-buttons { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline, .btn-white, .btn-white-outline, .btn-teal-outline {
+        width: 100%; text-align: center; display: block;
+      }
+      .niche-card { padding: 1.4rem; }
+      .kelsey-note { padding: 1.5rem; }
+      .hero-buttons { flex-direction: column; align-items: stretch; }
+      .founder-visual { height: 260px; }
+      .mobile-menu a { font-size: 1.5rem; padding: 0.65rem 2rem; }
+      .why-item { gap: 1rem; }
+      .why-num { font-size: 2.2rem; }
+      .reassurance { padding: 2rem 1.2rem; }
+      .calendly-block { padding: 1.8rem 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.9rem; }
+      .section-title { font-size: 1.5rem; }
+      .path-card h3 { font-size: 1.2rem; }
+      section { padding: 2rem 1rem; }
+      .hero-content { padding: 1.8rem 1rem; }
+      .cta-banner h2 { font-size: 1.5rem; }
     }
   </style>
 </head>
@@ -793,7 +826,7 @@
           <div class="calendly-block">
             <h4>Prefer to just jump on a call?</h4>
             <p>Book a free 30-minute discovery call. No pressure, no obligation — just a great conversation about travel.</p>
-            <a class="btn-white" href="https://calendly.com/kelsey-likemindedgrouptravel/30min" target="_blank" rel="noopener">Book My Free Discovery Call</a>
+            <a class="btn-white" href="https://calendly.com/kelsey-likemindedtravel/30min" target="_blank" rel="noopener">Book My Free Discovery Call</a>
           </div>
           <div style="margin-top:3rem">
             <h3>What happens next?</h3>
@@ -855,6 +888,55 @@
         <p>All of these experiences — Chile, Morocco, Australia, a decade in hospitality, years of creating personal experiences as an Airbnb host — led me here. I believe we are all so much more alike than we are different. We just have to create the conditions to find that common ground. Travel creates those conditions beautifully.</p>
         <p>Because life is meant to be lived fully. And I can't wait to help you do exactly that.</p>
         <div class="article-sign">— Kelsey Fuller, Founder of Likeminded Travel</div>
+
+        <div style="border-top:1px solid var(--teal-light);padding-top:3rem;margin-top:3rem">
+          <div class="article-meta">
+            <span>By Kelsey Fuller</span>
+            <span>Solo Travel</span>
+            <span>4 min read</span>
+          </div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--teal-dark);font-style:italic;line-height:1.2;margin-bottom:0.5rem">Why You Keep Almost Booking It — And What That's Really About</h2>
+          <p class="article-subtitle">You are not afraid of travel. You are afraid of what it would mean to actually go.</p>
+
+          <p style="font-size:1rem;line-height:1.95;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">Because taking a trip — a real one, by yourself, for yourself — requires something that feels surprisingly vulnerable: putting yourself first. Saying that what you want matters enough to act on. Trusting yourself to handle whatever comes up.</p>
+
+          <p style="font-size:1rem;line-height:1.95;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">That is not a logistics problem. That is a permission problem.</p>
+
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--terracotta-dark);line-height:1.4;text-align:center;padding:2rem 0;border-top:1px solid var(--teal-light);border-bottom:1px solid var(--teal-light);margin:2rem 0">The trip you keep putting off is not really about the destination. It is about the version of yourself waiting on the other side of it.</div>
+
+          <p style="font-size:1rem;line-height:1.95;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">Here is what I hear from people like you, over and over again:</p>
+
+          <div style="margin-bottom:1.2rem">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--teal-dark);margin-bottom:0.4rem">"I don't have anyone to go with."</p>
+            <p style="font-size:0.95rem;line-height:1.85;color:var(--text-mid);font-weight:300">So you wait. For a friend to be free, a partner to be interested, a schedule to align. And the waiting becomes its own kind of life sentence.</p>
+          </div>
+
+          <div style="margin-bottom:1.2rem">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--teal-dark);margin-bottom:0.4rem">"I wouldn't even know where to start."</p>
+            <p style="font-size:0.95rem;line-height:1.85;color:var(--text-mid);font-weight:300">The research rabbit hole is real. One tab becomes forty. You close the laptop more confused than when you opened it. The overwhelm feels like a sign that you're not ready. It isn't. It's just a sign that you need help.</p>
+          </div>
+
+          <div style="margin-bottom:1.2rem">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--teal-dark);margin-bottom:0.4rem">"What if something goes wrong?"</p>
+            <p style="font-size:0.95rem;line-height:1.85;color:var(--text-mid);font-weight:300">The what-ifs are loud. And they are almost entirely about one thing: being alone with a problem and no one to turn to. I promise it is smaller than it sounds — and I will be a message away the entire time you are traveling.</p>
+          </div>
+
+          <div style="margin-bottom:1.2rem">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--teal-dark);margin-bottom:0.4rem">"I'll go when things slow down."</p>
+            <p style="font-size:0.95rem;line-height:1.85;color:var(--text-mid);font-weight:300">They won't. Not in the way you mean. There will always be something. The timing will never be perfect. The question is whether you are willing to go anyway.</p>
+          </div>
+
+          <div style="margin-bottom:2rem">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--teal-dark);margin-bottom:0.4rem">"Am I really the kind of person who does this?"</p>
+            <p style="font-size:0.95rem;line-height:1.85;color:var(--text-mid);font-weight:300">Yes. You are. The fact that you are reading this is proof enough.</p>
+          </div>
+
+          <p style="font-size:1rem;line-height:1.95;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">None of these are really about travel. They are about self-trust. About permission. About believing that you are someone who gets to have experiences that are entirely, unapologetically your own.</p>
+
+          <p style="font-size:1rem;line-height:1.95;color:var(--text-mid);font-weight:300;margin-bottom:2rem">You are. And I am here to help you remember that. You deserve this. Let's book your adventure together.</p>
+
+          <a class="btn-teal-outline" onclick="showPage('contact')" style="display:inline-block">Let's Book My Adventure →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1183,7 +1265,7 @@
     <p>Tell me a little about yourself and where you are dreaming of going — and I will take it from there.</p>
     <div class="cta-buttons">
       <a class="btn-white" onclick="showPage('contact')">Plan My Solo Trip</a>
-      <a class="btn-white-outline" href="https://calendly.com/kelsey-likemindedgrouptravel/30min" target="_blank" rel="noopener">Book a Free Discovery Call</a>
+      <a class="btn-white-outline" href="https://calendly.com/kelsey-likemindedtravel/30min" target="_blank" rel="noopener">Book a Free Discovery Call</a>
     </div>
   </div>
 
