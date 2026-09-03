@@ -1055,21 +1055,22 @@
         <div class="article-meta"><span>By Kelsey Fuller</span><span>Destination Guide</span><span>7 min read</span></div>
         <h1>Austin Weekend Itineraries, by Hotel Vibe</h1>
         <p class="article-subtitle">A quick-reference guide for matching clients to the right property, with a weekend built around each one&rsquo;s neighborhood and energy.</p>
-        <div id="austin-gate">
-          <div style="background:var(--sand-mid);border-radius:4px;padding:2.5rem;margin:2rem 0;text-align:center">
+        <div id="austin-gated-content" style="position:relative">
+        <h2>The LINE Austin</h2>
+        <div id="austin-gate-overlay" style="position:absolute;inset:0;top:-1rem;display:flex;align-items:flex-start;justify-content:center;padding-top:3rem;opacity:0;pointer-events:none;transition:opacity 0.5s ease;background:linear-gradient(to bottom, rgba(253,250,244,0.4) 0%, rgba(253,250,244,0.97) 18%, rgba(253,250,244,0.99) 100%);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);z-index:5">
+          <div style="background:var(--sand-mid);border-radius:4px;padding:2.5rem;margin-top:2rem;text-align:center;max-width:420px;box-shadow:0 12px 40px rgba(0,0,0,0.12)">
             <h2 style="margin-top:0;margin-bottom:0.75rem">Enter some info to access the article</h2>
             <p style="font-size:0.95rem;line-height:1.7;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">Pop in your email and I&rsquo;ll unlock the full hotel-by-hotel Austin guide right here.</p>
-            <iframe name="mc-gate-frame" style="display:none" onload="if(window.austinGateSubmitted){document.getElementById('austin-gate').style.display='none';document.getElementById('austin-gated-content').style.display='block';localStorage.setItem('lmt_austin_unlocked','1');}"></iframe>
+            <iframe name="mc-gate-frame" style="display:none" onload="if(window.austinGateSubmitted){document.getElementById('austin-gate-overlay').style.opacity='0';document.getElementById('austin-gate-overlay').style.pointerEvents='none';localStorage.setItem('lmt_austin_unlocked','1');}"></iframe>
             <form action="https://likeminded-travel.us20.list-manage.com/subscribe/post?u=2da1dcdd73f35dd92b8682594&amp;id=343fe51866&amp;f_id=00a337e2f0" method="post" target="mc-gate-frame" onsubmit="window.austinGateSubmitted=true;" style="max-width:400px;margin:0 auto;text-align:left">
               <div class="form-group" style="margin-bottom:1rem"><input type="email" name="EMAIL" required placeholder="your@email.com"/></div>
               <input type="hidden" name="MMERGE7" value="Austin Weekend Itineraries"/>
+              <input type="hidden" name="MERGE7" value="Austin Weekend Itineraries"/>
               <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2da1dcdd73f35dd92b8682594_343fe51866" tabindex="-1" value=""/></div>
               <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer">Unlock the Guide &rarr;</button>
             </form>
           </div>
         </div>
-        <div id="austin-gated-content" style="display:none">
-        <h2>The LINE Austin</h2>
         <p style="font-size:1rem;line-height:1.9;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">Vibe: Downtown, modern, high-energy, lake views. This is the perfect hotel for clients who want to be in the middle of it all.</p>
         <p style="font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terracotta-dark);font-weight:500;margin-bottom:0.5rem">Friday</p>
         <ul style="font-size:1rem;line-height:1.9;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem;padding-left:1.3rem">
@@ -1504,13 +1505,23 @@
 <script>
   const validPages = ['home','solo','solotrip','group','destinations','trips','about','blog','post-founders-note','post-almost-booking','post-austin-hotels','contact'];
 
+  var austinGateTimer = null;
+
   function checkAustinGate() {
+    var overlay = document.getElementById('austin-gate-overlay');
+    if (!overlay) return;
+    if (austinGateTimer) { clearTimeout(austinGateTimer); austinGateTimer = null; }
     if (localStorage.getItem('lmt_austin_unlocked') === '1') {
-      var gate = document.getElementById('austin-gate');
-      var content = document.getElementById('austin-gated-content');
-      if (gate) gate.style.display = 'none';
-      if (content) content.style.display = 'block';
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+      return;
     }
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+    austinGateTimer = setTimeout(function() {
+      overlay.style.opacity = '1';
+      overlay.style.pointerEvents = 'auto';
+    }, 3000);
   }
 
   function showPage(id) {
