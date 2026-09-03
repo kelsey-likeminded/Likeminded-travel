@@ -1055,6 +1055,19 @@
         <div class="article-meta"><span>By Kelsey Fuller</span><span>Destination Guide</span><span>7 min read</span></div>
         <h1>Austin Weekend Itineraries, by Hotel Vibe</h1>
         <p class="article-subtitle">A quick-reference guide for matching clients to the right property, with a weekend built around each one&rsquo;s neighborhood and energy.</p>
+        <div id="austin-gate">
+          <div style="background:var(--sand-mid);border-radius:4px;padding:2.5rem;margin:2rem 0;text-align:center">
+            <h2 style="margin-top:0;margin-bottom:0.75rem">Enter some info to access the article</h2>
+            <p style="font-size:0.95rem;line-height:1.7;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">Pop in your email and I&rsquo;ll unlock the full hotel-by-hotel Austin guide right here.</p>
+            <iframe name="mc-gate-frame" style="display:none" onload="if(window.austinGateSubmitted){document.getElementById('austin-gate').style.display='none';document.getElementById('austin-gated-content').style.display='block';localStorage.setItem('lmt_austin_unlocked','1');}"></iframe>
+            <form action="https://likeminded-travel.us20.list-manage.com/subscribe/post?u=2da1dcdd73f35dd92b8682594&amp;id=343fe51866&amp;f_id=00a337e2f0" method="post" target="mc-gate-frame" onsubmit="window.austinGateSubmitted=true;" style="max-width:400px;margin:0 auto;text-align:left">
+              <div class="form-group" style="margin-bottom:1rem"><input type="email" name="EMAIL" required placeholder="your@email.com"/></div>
+              <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2da1dcdd73f35dd92b8682594_343fe51866" tabindex="-1" value=""/></div>
+              <button type="submit" class="btn-primary" style="width:100%;border:none;cursor:pointer">Unlock the Guide &rarr;</button>
+            </form>
+          </div>
+        </div>
+        <div id="austin-gated-content" style="display:none">
         <h2>The LINE Austin</h2>
         <p style="font-size:1rem;line-height:1.9;color:var(--text-mid);font-weight:300;margin-bottom:1.5rem">Vibe: Downtown, modern, high-energy, lake views. This is the perfect hotel for clients who want to be in the middle of it all.</p>
         <p style="font-family:'Jost',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--terracotta-dark);font-weight:500;margin-bottom:0.5rem">Friday</p>
@@ -1141,6 +1154,7 @@
           <li style="margin-bottom:0.4rem">Enjoy a slow, quiet morning with in-room dining &mdash; no rush to leave the grounds before checkout, as a perk of booking with me is being prioritized for a late checkout!</li>
         </ul>
         <a class="btn-teal-outline" onclick="showPage('contact')" style="display:inline-block;margin-top:1rem">Let's Plan Your Austin Weekend &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1489,12 +1503,22 @@
 <script>
   const validPages = ['home','solo','solotrip','group','destinations','trips','about','blog','post-founders-note','post-almost-booking','post-austin-hotels','contact'];
 
+  function checkAustinGate() {
+    if (localStorage.getItem('lmt_austin_unlocked') === '1') {
+      var gate = document.getElementById('austin-gate');
+      var content = document.getElementById('austin-gated-content');
+      if (gate) gate.style.display = 'none';
+      if (content) content.style.display = 'block';
+    }
+  }
+
   function showPage(id) {
     if (!validPages.includes(id)) id = 'home';
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
     window.location.hash = id === 'home' ? '' : id;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (id === 'post-austin-hotels') checkAustinGate();
   }
 
   function loadFromHash() {
@@ -1502,6 +1526,7 @@
     const id = validPages.includes(hash) ? hash : 'home';
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
+    if (id === 'post-austin-hotels') checkAustinGate();
   }
 
   // Load correct page on initial load and back/forward navigation
